@@ -1,0 +1,36 @@
+{
+  "project_name": "SerpentariuStore",
+  "project_type": "clothing_ecommerce",
+  "owner": "adminbot",
+  "access_level": "full",
+  "eva_control": true,
+  "directories": {
+    "catalog": "product_catalog",
+    "marketing": "marketing_campaigns",
+    "inventory": "inventory_management",
+    "sales": "sales_optimization",
+    "support": "customer_support",
+    "visual": "product_images",
+    "analytics": "store_analytics",
+    "gmail": "email_management",
+    "shopify": "shopify_automation",
+    "instagram": "instagram_marketing",
+    "tiktok": "tiktok_marketing",
+    "assets": {
+      "photos": "product_photos",
+      "facturas": "invoices_receipts"
+    }
+  },
+  "permissions": {
+    "read": true,
+    "write": true,
+    "delete": false,
+    "execute": true
+  },
+  "google_integration": {
+    "drive_access": "configured",
+    "search_console": "pending",
+    "analytics": "pending"
+  },
+  "agents_assigned": []
+}

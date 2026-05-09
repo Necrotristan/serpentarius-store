@@ -1,0 +1,25 @@
+# Credenciales y secrets
+vault/
+credentials/
+*.token.json
+*.token
+*.pickle
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Entorno
+.env
+.env.local
+
+# Node / Python
+node_modules/
+__pycache__/
+*.pyc
+*.pyo

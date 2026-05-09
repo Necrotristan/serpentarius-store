@@ -1,0 +1,62 @@
+{
+  "project_name": "SerpentariuStore",
+  "google_drive_integration": {
+    "enabled": true,
+    "access_type": "full",
+    "billing_enabled": false,
+    "quota_info": {
+      "requests_per_day": "Unlimited for file operations",
+      "requests_per_100_seconds_per_user": 100,
+      "requests_per_100_seconds": 1000
+    },
+    "api_info": {
+      "name": "Google Drive API v3",
+      "cost": "Free tier",
+      "quotas": "No billing required for basic operations"
+    },
+    "folders": {
+      "facturas": {
+        "description": "Invoices and receipts",
+        "mime_type": "application/pdf, image/jpeg, image/png"
+      },
+      "photos": {
+        "description": "Product photos and images",
+        "mime_type": "image/jpeg, image/png, image/webp"
+      },
+      "catalog": {
+        "description": "Product catalog files",
+        "mime_type": "application/json, text/csv"
+      }
+    },
+    "authentication": {
+      "type": "OAuth 2.0",
+      "client_id": "VER_VAULT_credentials.json",
+      "client_secret": "VER_VAULT_credentials.json",
+      "recommended": "OAuth 2.0 for full access",
+      "setup_url": "https://console.cloud.google.com/apis/credentials",
+      "status": "credentials_complete",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token"
+    },
+    "setup_steps": [
+      "1. Go to Google Cloud Console",
+      "2. Create project (or use existing) - NO billing needed",
+      "3. Enable Google Drive API",
+      "4. Create credentials (API Key or OAuth client ID)",
+      "5. Share Drive folders with service account or use OAuth"
+    ]
+  },
+  "permissions": {
+    "read": true,
+    "write": true,
+    "list": true,
+    "download": true,
+    "upload": true
+  },
+  "eva_access": {
+    "can_read_facturas": true,
+    "can_read_photos": true,
+    "can_manipulate_files": true,
+    "can_organize_structure": true
+  }
+}
