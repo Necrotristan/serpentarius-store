@@ -1,0 +1,74 @@
+{
+  "empresa": "SerpentariuStore",
+  "tipo": "Banda Comercial - Ecommerce de ropa",
+  "fecha_constitucion": "2026-05-12",
+  "email": "Serpentariusrockstore@gmail.com",
+  "telefono": "",
+  "direccion": "",
+  "estructura": "Horizontal - 4 socios con igual porcentaje (10% cada uno)",
+  "distribucion_ingresos": {
+    "cada_socio": "10%",
+    "total_socios": "40%",
+    "banco_banda": "60% (administrado por Carlos Parra)"
+  },
+  "metodo_pago": "Nequi",
+  "miembros": [
+    {
+      "id": 1,
+      "nombre": "Leonardo Bernal",
+      "cargo": "Director de Tecnologia y Automatizacion",
+      "email": "Serpentariusrockstore@gmail.com",
+      "telefono": "",
+      "porcentaje": "10%",
+      "rol": "Tecnologia, servidor, bot EVA, n8n, APIs, integraciones",
+      "jerarquia": "CEO / CTO",
+      "reporta_a": "Ninguno (socio fundador)",
+      "supervisa": ["Carlos Parra"]
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos Parra",
+      "cargo": "Subdirector de Logistica, Inventario y Redes Sociales",
+      "email": "",
+      "telefono": "",
+      "porcentaje": "10%",
+      "rol": "Envios, inventario diario, administracion del dinero, redes sociales, videos",
+      "jerarquia": "COO / Subdirector",
+      "reporta_a": "Leonardo Bernal",
+      "supervisa": ["Jhonson Castiblanco", "Nelson Quisaboni"]
+    },
+    {
+      "id": 3,
+      "nombre": "Jhonson Castiblanco Montano",
+      "cargo": "Lider Audiovisual y Control de Calidad (QA) del Bot",
+      "email": "manfretjhonson2000@gmail.com",
+      "telefono": "",
+      "porcentaje": "10%",
+      "rol": "Creacion y edicion de videos, reels, QA del bot EVA, control inventario",
+      "jerarquia": "CCO / Creative & QA Lead",
+      "reporta_a": "Carlos Parra",
+      "supervisa": ["Nelson Quisaboni (coordinacion)"]
+    },
+    {
+      "id": 4,
+      "nombre": "Nelson Quisaboni",
+      "cargo": "Coordinador de Logistica y Entregas",
+      "email": "",
+      "telefono": "",
+      "porcentaje": "10%",
+      "rol": "Subir material al Drive, devoluciones, entregas urgentes en moto, inventario local",
+      "jerarquia": "Logistics Coordinator",
+      "reporta_a": "Carlos Parra y Jhonson Castiblanco",
+      "supervisa": []
+    }
+  ],
+  "contratos": {
+    "ruta": "/home/adminbot/Proyecto EVA/empresas/serpentarius/contratos/",
+    "archivos": [
+      "CONTRATO_LEONARDO_BERNAL.md",
+      "CONTRATO_CARLOS_PARRA.md",
+      "CONTRATO_JHONSON_CASTIBLANCO.md",
+      "CONTRATO_NELSON_QUISABONI.md"
+    ]
+  }
+}
