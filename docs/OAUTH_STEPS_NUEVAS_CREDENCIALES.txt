@@ -1,0 +1,63 @@
+============================================================
+PROCEDIMIENTO: AUTORIZAR APIs DE GOOGLE (NUEVAS CREDENCIALES)
+============================================================
+
+Proyecto: SerpentariuStore (EVA Empire)
+Cuenta:   Serpentariusrockstore@gmail.com
+Cliente ID nuevo: 925085014661-askujbb6dmtteeleug31n8qckp4ecmgv
+
+------------------------------------------------------------
+PASO 1: ABRE ESTE ENLACE EN TU NAVEGADOR
+------------------------------------------------------------
+
+https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=925085014661-askujbb6dmtteeleug31n8qckp4ecmgv.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.readonly+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.send+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.modify+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly&state=weAXAg6R4sDF6rgSp8rA8p0IZsk5eM&code_challenge=QMolAM_H5hqAPas4B71mTeYCZTW4RKtxE82qeHaunt8&code_challenge_method=S256&prompt=consent&access_type=offline
+
+------------------------------------------------------------
+PASO 2: AUTORIZA CON TU CUENTA DE GOOGLE
+------------------------------------------------------------
+
+- Inicia sesion con: Serpentariusrockstore@gmail.com
+- Acepta TODOS los permisos:
+  * Gmail (leer, enviar, modificar)
+  * Google Drive (acceso completo)
+  * Google Sheets (crear/editar hojas)
+  * Google Contacts (leer contactos)
+
+------------------------------------------------------------
+PASO 3: COPIA EL CODIGO DE AUTORIZACION
+------------------------------------------------------------
+
+Despues de autorizar, tu navegador te redirigira a una URL como:
+
+  http://localhost:5678/?code=4/0ATx3LY4_...&scope=...
+
+La pagina mostrara "No se puede conectar" o similar (ES NORMAL).
+
+1. Mira la BARRA DE DIRECCIONES del navegador
+2. Busca donde dice: ?code=
+3. COPIA todo desde despues de "code=" hasta antes del "&"
+   (es un texto largo que empieza con "4/0..." o similar)
+
+------------------------------------------------------------
+PASO 4: PEGA EL CODIGO EN EL CHAT CON EVA
+------------------------------------------------------------
+
+Pega el codigo que copiaste en el chat para que EVA:
+  1. Genere el token de acceso
+  2. Valide People API (contactos)
+  3. Valide Sheets API (hojas de calculo)
+  4. Configure n8n con las nuevas credenciales
+  5. Busque el email de Leonardo Bernal en contactos
+  6. Envie correo de prueba
+
+------------------------------------------------------------
+REQUISITOS (Google Cloud Console)
+------------------------------------------------------------
+Antes de autorizar, verifica en https://console.cloud.google.com/:
+
+  [X] People API habilitada
+  [X] Google Sheets API habilitada
+  [X] URI de redireccion: http://localhost:5678
+  [X] Cliente OAuth de tipo: "Aplicacion web"
+
+============================================================
