@@ -1,0 +1,19 @@
+{
+  "api": {
+    "client_key": "awwnb6qupkma9dzy",
+    "client_secret": "mhwTt2cdBMKuqNT4aTNuqju2z8RewmkP",
+    "base_url": "https://open-api.tiktok.com",
+    "api_version": "v2"
+  },
+  "features": {
+    "content_planning": true,
+    "ads_management": true,
+    "creator_management": true,
+    "analytics": true
+  },
+  "webhooks": {
+    "orders": "/webhook/tiktok-order",
+    "status_updates": "/webhook/tiktok-status"
+  },
+  "redirect_uri": "http://localhost:5678/rest/oauth2-credential/callback"
+}
