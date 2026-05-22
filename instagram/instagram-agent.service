@@ -1,0 +1,16 @@
+[Unit]
+Description=Instagram Agent - Manage Instagram Shop, Reels, DMs, Creators
+After=network.target n8n-claw.service
+
+[Service]
+Type=simple
+User=adminbot
+WorkingDirectory=/home/adminbot/Proyecto EVA/eva/agents/instagram_agent
+ExecStart=/usr/bin/python3 /home/adminbot/agents/instagram_agent/instagram_agent.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/adminbot/agents/instagram_agent/instagram.log
+StandardError=append:/home/adminbot/agents/instagram_agent/instagram.log
+
+[Install]
+WantedBy=default.target

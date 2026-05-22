@@ -2,23 +2,320 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SerpentariuStore</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SerpentariuStore — Ropa & Accesorios Rock</title>
+<meta name="description" content="Tienda especializada en ropa y accesorios rock, metal y alternativo. Chaquetas, camisetas, busos y más. Envíos a toda Colombia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 100px auto; padding: 20px; text-align: center; line-height: 1.6; color: #333; }
-  h1 { color: #1a1a2e; }
-  a { color: #e94560; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .links { margin-top: 40px; }
-  .links a { display: block; margin: 15px 0; font-size: 18px; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a2e;
+  --p:#e94560;--pl:#ff6b81;--pd:#c23152;
+  --a:#818cf8;--al:#a5b4fc;
+  --s:#34d399;--sl:#6ee7b7;
+  --t1:#f1f5f9;--t2:#94a3b8;--t3:#64748b;
+  --b:rgba(255,255,255,.06);
+  --sans:'Inter',system-ui,sans-serif;
+  --sh:0 4px 20px rgba(0,0,0,.4);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 20% 30%,rgba(233,69,96,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 70%,rgba(129,140,248,.04) 0%,transparent 50%);
+  pointer-events:none;z-index:0}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);padding:0 24px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-l{display:flex;align-items:center;gap:10px}
+.nav-logo{width:32px;height:32px;background:var(--p);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem;color:#fff}
+.nav-l span{font-weight:800;font-size:.95rem;letter-spacing:-.3px}
+.nav-l span small{font-weight:300;color:var(--t3);font-size:.7rem}
+.nav-r{display:flex;align-items:center;gap:8px}
+.nav-r a{color:var(--t2);text-decoration:none;font-size:.78rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:all .2s}
+.nav-r a:hover{color:var(--t1);background:rgba(255,255,255,.04)}
+.cta{background:var(--p);color:#fff!important;font-weight:700!important}
+.cta:hover{background:var(--pd)!important;transform:translateY(-1px);box-shadow:0 4px 16px rgba(233,69,96,.3)}
+
+/* Hero */
+.hero{max-width:1200px;margin:0 auto;padding:140px 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:100vh;position:relative;z-index:1}
+.hero-l h1{font-size:3.2rem;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px}
+.hero-l h1 span{background:linear-gradient(135deg,var(--p),var(--pl));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-l p{font-size:1.05rem;color:var(--t2);line-height:1.7;margin-bottom:30px;max-width:480px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.88rem;transition:all .2s;border:none;cursor:pointer;font-family:var(--sans)}
+.btn-p{background:var(--p);color:#fff}
+.btn-p:hover{background:var(--pd);transform:translateY(-2px);box-shadow:0 6px 20px rgba(233,69,96,.3)}
+.btn-s{border:1px solid var(--b);color:var(--t1);background:rgba(255,255,255,.04)}
+.btn-s:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.1);transform:translateY(-2px)}
+.hero-r{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-card{background:var(--bg2);border:1px solid var(--b);border-radius:12px;padding:20px;text-align:center;transition:all .3s}
+.hero-card:hover{transform:translateY(-4px);border-color:rgba(233,69,96,.2);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.hero-card .icon{font-size:2rem;margin-bottom:8px}
+.hero-card h3{font-size:.9rem;font-weight:700;margin-bottom:4px}
+.hero-card p{font-size:.72rem;color:var(--t3);line-height:1.4}
+.hero-card .price{font-size:1.1rem;font-weight:800;color:var(--p);margin-top:8px}
+
+/* Products */
+.products{max-width:1200px;margin:0 auto;padding:80px 24px;position:relative;z-index:1}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:2.2rem;font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.section-title p{color:var(--t2);font-size:.95rem}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.prod-card{background:var(--bg2);border:1px solid var(--b);border-radius:12px;overflow:hidden;transition:all .3s;position:relative}
+.prod-card:hover{transform:translateY(-4px);border-color:rgba(233,69,96,.15);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.prod-img{height:200px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.prod-body{padding:16px}
+.prod-body .tag{display:inline-block;padding:2px 8px;background:rgba(233,69,96,.1);color:var(--pl);border-radius:4px;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.prod-body h3{font-size:.9rem;font-weight:700;margin-bottom:4px}
+.prod-body .desc{font-size:.72rem;color:var(--t3);margin-bottom:10px;line-height:1.4}
+.prod-body .bot{display:flex;justify-content:space-between;align-items:center}
+.prod-body .price{font-size:1.15rem;font-weight:800;color:var(--p)}
+.prod-body .btn-s{padding:6px 16px;font-size:.72rem;font-weight:600;border-radius:6px;background:rgba(233,69,96,.1);color:var(--p);border:1px solid rgba(233,69,96,.2);text-decoration:none;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.prod-body .btn-s:hover{background:rgba(233,69,96,.2);transform:none}
+
+/* WhatsApp Float */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:200;transition:all .3s;font-size:1.6rem}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
+
+/* Features */
+.features{max-width:1200px;margin:0 auto;padding:80px 24px;position:relative;z-index:1}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.feat-card{background:var(--bg2);border:1px solid var(--b);border-radius:12px;padding:28px;text-align:center;transition:all .3s}
+.feat-card:hover{transform:translateY(-4px);border-color:rgba(129,140,248,.15)}
+.feat-card .icon{font-size:2.2rem;margin-bottom:12px}
+.feat-card h3{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.feat-card p{font-size:.78rem;color:var(--t3);line-height:1.5}
+
+/* Newsletter */
+.newsletter{max-width:1200px;margin:0 auto;padding:80px 24px;position:relative;z-index:1}
+.nl-box{background:linear-gradient(135deg,var(--bg2),rgba(233,69,96,.05));border:1px solid rgba(233,69,96,.15);border-radius:16px;padding:50px;text-align:center}
+.nl-box h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+.nl-box p{color:var(--t2);margin-bottom:24px;font-size:.9rem}
+.nl-form{display:flex;gap:8px;max-width:420px;margin:0 auto}
+.nl-form input{flex:1;padding:12px 16px;border-radius:8px;border:1px solid var(--b);background:var(--bg);color:var(--t1);font-size:.85rem;font-family:var(--sans);outline:none;transition:border-color .2s}
+.nl-form input:focus{border-color:var(--p)}
+.nl-form button{padding:12px 24px;background:var(--p);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:var(--sans);transition:all .2s;white-space:nowrap}
+.nl-form button:hover{background:var(--pd);transform:translateY(-2px)}
+
+/* Footer */
+footer{max-width:1200px;margin:0 auto;padding:40px 24px;border-top:1px solid var(--b);position:relative;z-index:1}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-col h4{font-size:.85rem;font-weight:700;margin-bottom:12px}
+.footer-col p{font-size:.78rem;color:var(--t3);line-height:1.6}
+.footer-col a{display:block;font-size:.78rem;color:var(--t2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--t1)}
+.footer-bot{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid var(--b);color:var(--t3);font-size:.72rem}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:100px 20px 60px;gap:40px}
+  .hero-l h1{font-size:2.2rem}
+  .hero-r{grid-template-columns:1fr 1fr}
+  .nl-form{flex-direction:column}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:600px){
+  .hero-r{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr}
+  .nav-r a{display:none}
+  .nav-r .cta{display:inline-flex}
+  .footer-inner{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-  <h1>SerpentariuStore</h1>
-  <p>Tienda online de ropa y accesorios</p>
-  <div class="links">
-    <a href="terms-of-service.html">Términos y Condiciones</a>
-    <a href="privacy-policy.html">Política de Privacidad</a>
-  </div>
+
+<nav>
+<div class="nav-inner">
+<div class="nav-l">
+<div class="nav-logo">S</div>
+<span>SerpentariuStore <small>by EVA</small></span>
+</div>
+<div class="nav-r">
+<a href="#productos">Catálogo</a>
+<a href="#caracteristicas">Cómo comprar</a>
+<a href="#contacto">Contacto</a>
+<a href="terms-of-service.html">Términos</a>
+<a href="privacy-policy.html">Privacidad</a>
+<a href="https://wa.me/573112079449?text=Hola%20SerpentariuStore%2C%20quiero%20ver%20el%20cat%C3%A1logo" class="cta" target="_blank">WhatsApp</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-l">
+<h1>Tu estilo <span>rockero</span> al siguiente nivel</h1>
+<p>Descubre nuestra colección exclusiva de ropa y accesorios con las bandas que amas. Chaquetas, camisetas, busos y más. Envíos a toda Colombia.</p>
+<div class="hero-btns">
+<a href="https://wa.me/573112079449?text=Hola%20SerpentariuStore%2C%20quiero%20ver%20el%20cat%C3%A1logo%20completo" class="btn btn-p" target="_blank">💬 Ver catálogo por WhatsApp</a>
+<a href="#productos" class="btn btn-s">Explorar productos</a>
+</div>
+</div>
+<div class="hero-r">
+<div class="hero-card">
+<div class="icon">🧥</div>
+<h3>Chaquetas Rockeras</h3>
+<p>AC/DC, Metallica — cuero y denim</p>
+<div class="price">Desde $120K</div>
+</div>
+<div class="hero-card">
+<div class="icon">👕</div>
+<h3>Camisetas</h3>
+<p>Iron Maiden, Pantera, Tool, Gojira</p>
+<div class="price">Desde $42K</div>
+</div>
+<div class="hero-card">
+<div class="icon">🧢</div>
+<h3>Busos & Hoodies</h3>
+<p>Slayer, Misfits, Motorhead</p>
+<div class="price">Desde $90K</div>
+</div>
+<div class="hero-card">
+<div class="icon">🎸</div>
+<h3>Accesorios</h3>
+<p>Gorras, parches, tazas y más</p>
+<div class="price">Desde $12K</div>
+</div>
+</div>
+</section>
+
+<section class="products" id="productos">
+<div class="section-title">
+<h2>🔥 Lo más vendido</h2>
+<p>Los favoritos de nuestra comunidad rockera</p>
+</div>
+<div class="prod-grid">
+<div class="prod-card">
+<div class="prod-img">🧥</div>
+<div class="prod-body">
+<span class="tag">Chaquetas</span>
+<h3>Chaqueta AC/DC — Back in Black</h3>
+<div class="desc">Chaqueta icónica con logo Back in Black bordado. Tela denim premium.</div>
+<div class="bot"><span class="price">$135.000</span><a href="https://wa.me/573112079449?text=Hola%2C%20quiero%20la%20Chaqueta%20AC%2FDC%20Back%20in%20Black" class="btn-s" target="_blank">Comprar</a></div>
+</div>
+</div>
+<div class="prod-card">
+<div class="prod-img">🧥</div>
+<div class="prod-body">
+<span class="tag">Chaquetas</span>
+<h3>Chaqueta Metallica — Master of Puppets</h3>
+<div class="desc">Edición especial Master of Puppets. Bordado de alta calidad.</div>
+<div class="bot"><span class="price">$120.000</span><a href="https://wa.me/573112079449?text=Hola%2C%20quiero%20la%20Chaqueta%20Metallica%20Master%20of%20Puppets" class="btn-s" target="_blank">Comprar</a></div>
+</div>
+</div>
+<div class="prod-card">
+<div class="prod-img">👕</div>
+<div class="prod-body">
+<span class="tag">Camisetas</span>
+<h3>Camiseta Iron Maiden — Fear of the Dark</h3>
+<div class="desc">Estampado frontal de alta duración. Algodón premium 240gr.</div>
+<div class="bot"><span class="price">$48.000</span><a href="https://wa.me/573112079449?text=Hola%2C%20quiero%20la%20Camiseta%20Iron%20Maiden%20Fear%20of%20the%20Dark" class="btn-s" target="_blank">Comprar</a></div>
+</div>
+</div>
+<div class="prod-card">
+<div class="prod-img">👕</div>
+<div class="prod-body">
+<span class="tag">Camisetas</span>
+<h3>Camiseta Tool — Lateralus</h3>
+<div class="desc">Diseño exclusivo Lateralus. Algodón 240gr, cuello reforzado.</div>
+<div class="bot"><span class="price">$55.000</span><a href="https://wa.me/573112079449?text=Hola%2C%20quiero%20la%20Camiseta%20Tool%20Lateralus" class="btn-s" target="_blank">Comprar</a></div>
+</div>
+</div>
+<div class="prod-card">
+<div class="prod-img">🧢</div>
+<div class="prod-body">
+<span class="tag">Hoodies</span>
+<h3>Sudadera Slayer — Show No Mercy</h3>
+<div class="desc">Sudadera con capucha y bolsillo canguro. Algodón+polyester.</div>
+<div class="bot"><span class="price">$95.000</span><a href="https://wa.me/573112079449?text=Hola%2C%20quiero%20la%20Sudadera%20Slayer%20Show%20No%20Mercy" class="btn-s" target="_blank">Comprar</a></div>
+</div>
+</div>
+<div class="prod-card">
+<div class="prod-img">👖</div>
+<div class="prod-body">
+<span class="tag">Pantalones</span>
+<h3>Jean Tiro — Edición Rockera</h3>
+<div class="desc">Jean tiro recto con detalles rockeros. Denim importado.</div>
+<div class="bot"><span class="price">$170.000</span><a href="https://wa.me/573112079449?text=Hola%2C%20quiero%20el%20Jean%20Tiro%20Rockero" class="btn-s" target="_blank">Comprar</a></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features" id="caracteristicas">
+<div class="section-title">
+<h2>🎸 ¿Por qué SerpentariuStore?</h2>
+<p>La tienda rockera que entiende tu estilo</p>
+</div>
+<div class="feat-grid">
+<div class="feat-card">
+<div class="icon">📱</div>
+<h3>Compra por WhatsApp</h3>
+<p>Escríbenos y te asesoramos en tu compra. Pago por Nequi, Bancolombia o efectivo.</p>
+</div>
+<div class="feat-card">
+<div class="icon">🚚</div>
+<h3>Envíos a toda Colombia</h3>
+<p>Recibe tu pedido donde estés. Servientrega, Interrapidísimo y Coordinadora.</p>
+</div>
+<div class="feat-card">
+<div class="icon">💯</div>
+<h3>Calidad Garantizada</h3>
+<p>Productos originales con estampados de alta duración. Satisfacción o reembolso.</p>
+</div>
+<div class="feat-card">
+<div class="icon">🎵</div>
+<h3>Colección Exclusiva</h3>
+<p>Las mejores bandas del metal y rock: AC/DC, Metallica, Iron Maiden, Slayer, Tool, Pantera y más.</p>
+</div>
+</div>
+</section>
+
+<section class="newsletter" id="contacto">
+<div class="nl-box">
+<h2>📧 ¿Quieres ofertas exclusivas?</h2>
+<p>Suscríbete y recibe descuentos, nuevos lanzamientos y eventos directamente en tu correo.</p>
+<form class="nl-form" action="#" onsubmit="alert('📨 ¡Gracias! Te notificaremos cuando tengamos novedades. Mientras, escríbenos al WhatsApp.');return false">
+<input type="email" placeholder="tu@email.com" required>
+<button type="submit">Suscribirme</button>
+</form>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-col">
+<h4>SerpentariuStore</h4>
+<p>Tienda especializada en ropa y accesorios rock, metal y alternativo. Desde 2025 vistiendo a la escena colombiana.</p>
+</div>
+<div class="footer-col">
+<h4>Productos</h4>
+<a href="#productos">Chaquetas</a>
+<a href="#productos">Camisetas</a>
+<a href="#productos">Busos & Hoodies</a>
+<a href="#productos">Accesorios</a>
+</div>
+<div class="footer-col">
+<h4>Ayuda</h4>
+<a href="https://wa.me/573112079449" target="_blank">WhatsApp</a>
+<a href="terms-of-service.html">Términos y Condiciones</a>
+<a href="privacy-policy.html">Política de Privacidad</a>
+</div>
+<div class="footer-col">
+<h4>Contacto</h4>
+<a href="https://wa.me/573112079449" target="_blank">📱 +57 311 207 9449</a>
+<a href="mailto:Serpentariusrockstore@gmail.com">📧 serpentariusrockstore@gmail.com</a>
+<a href="#">📍 Bogotá, Colombia</a>
+</div>
+</div>
+<div class="footer-bot">
+© 2026 SerpentariuStore. Todos los derechos reservados. Powered by EVA.
+</div>
+</footer>
+
+<a href="https://wa.me/573112079449?text=Hola%20SerpentariuStore%2C%20quiero%20informaci%C3%B3n" class="whatsapp-float" target="_blank" title="WhatsApp">💬</a>
+
 </body>
 </html>

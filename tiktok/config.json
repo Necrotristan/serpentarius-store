@@ -1,7 +1,7 @@
 {
   "api": {
-    "client_key": "awwnb6qupkma9dzy",
-    "client_secret": "mhwTt2cdBMKuqNT4aTNuqju2z8RewmkP",
+    "client_key": "sbawi7ln29ttb6p1aa",
+    "client_secret": "d2HDNSIEFpkoWZLHeHnQa7VFjYOz1O9r",
     "base_url": "https://open-api.tiktok.com",
     "api_version": "v2"
   },
@@ -15,5 +15,26 @@
     "orders": "/webhook/tiktok-order",
     "status_updates": "/webhook/tiktok-status"
   },
-  "redirect_uri": "http://localhost:5678/rest/oauth2-credential/callback"
+  "redirect_uri": "http://localhost:5678/rest/oauth2-credential/callback",
+  "oauth": {
+    "scopes": [
+      "user.info.basic",
+      "video.upload",
+      "video.publish",
+      "video.list",
+      "comment.list",
+      "comment.publish"
+    ],
+    "auth_endpoint": "https://www.tiktok.com/v2/auth/authorize/",
+    "token_endpoint": "https://open-api.tiktok.com/v2/oauth/token/",
+    "local_redirect_port": 8765,
+    "local_redirect_uri": "http://localhost:8765/callback",
+    "token_path": "user_token.json"
+  },
+  "crm_integration": {
+    "contact_field": "tiktok_handle",
+    "interaction_channel": "tiktok",
+    "campaign_type": "tiktok",
+    "default_agent": "tiktok_agent"
+  }
 }

@@ -2,6 +2,7 @@
 vault/
 credentials/
 *.token.json
+*_token.json
 *.token
 *.pickle
 
