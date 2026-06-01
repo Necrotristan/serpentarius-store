@@ -166,7 +166,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
    HERO
    ══════════════════════════════════════════════════════════════ */
 .hero{
-  min-height:100vh;display:flex;align-items:center;position:relative;
+  min-height:100vh;display:flex;position:relative;
   background:var(--gradient-hero);
 }
 .hero-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
@@ -188,7 +188,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
     linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
   background-size:60px 60px;
 }
-.hero .container{position:relative;z-index:2;text-align:center;padding:80px 24px 60px}
+.hero .container{align-self:flex-start;position:relative;z-index:2;text-align:center;width:100%;padding:160px 24px 80px}
 .hero h1{
   font-family:'Playfair Display',serif;
   font-size:clamp(2.8rem,8vw,7rem);
@@ -487,7 +487,7 @@ footer{background:var(--bg);border-top:1px solid var(--glass-border);padding:80p
    ══════════════════════════════════════════════════════════════ */
 @media(max-width:768px){
   section{padding:60px 0}
-  .hero .container{padding:70px 20px 40px}
+  .hero .container{padding:100px 20px 60px}
   .hero-actions{margin-top:52px}
   .nav-links{
     position:fixed;top:0;right:-320px;width:300px;height:100vh;
@@ -510,7 +510,7 @@ footer{background:var(--bg);border-top:1px solid var(--glass-border);padding:80p
 
 @media(max-width:480px){
   .hero{min-height:92vh}
-  .hero .container{padding:60px 16px 32px}
+  .hero .container{padding:80px 16px 40px}
   .hero h1{font-size:2rem}
   .hero-actions{gap:10px;margin-top:40px}
   .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:12px 20px;font-size:0.72rem}
