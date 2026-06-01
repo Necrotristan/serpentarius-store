@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serpentarius — Ropa y Accesorios | Nuestro top: Sweaters Rockeros</title>
+<meta name="description" content="Sweaters rockeros tejido industrial a máquina en Colombia. Ropa y accesorios rock & metal. Nuestro mayor top: los sweaters. Ediciones limitadas. Envío gratis desde 3.">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=Cinzel:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   ROOT & RESET
+   ══════════════════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050505;--bg2:#0a0a0a;--bg3:#111;--bg4:#181818;
+  --surface:#1a1a1a;--surface2:#222;--surface3:#2a2a2a;
+  --glass:rgba(255,255,255,0.03);
+  --glass-border:rgba(255,255,255,0.06);
+  --text:#f5f5f5;--text2:#999;--text3:#555;--text4:#333;
+  --accent:#e63946;--accent2:#c9a84c;
+  --accent-dim:rgba(230,57,70,0.12);
+  --accent2-dim:rgba(201,168,76,0.1);
+  --green:#25D366;--green-dim:rgba(37,211,102,0.1);
+  --gradient-hero:linear-gradient(135deg,#050505 0%,#1a1a2e 35%,#0f3460 65%,#050505 100%);
+  --gradient-accent:linear-gradient(135deg,#e63946,#c1121f);
+  --gradient-gold:linear-gradient(135deg,#c9a84c,#e6c95a);
+  --gradient-dark:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.8) 100%);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --shadow:0 8px 40px rgba(0,0,0,0.5);
+  --shadow-lg:0 24px 80px rgba(0,0,0,0.6);
+  --shadow-accent:0 8px 30px rgba(230,57,70,0.25);
+  --transition:0.4s cubic-bezier(0.4,0,0.2,1);
+  --transition-slow:0.7s cubic-bezier(0.4,0,0.2,1);
+  --transition-bounce:0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+button,input,textarea{font-family:inherit;border:none;outline:none;background:none;color:inherit}
+button{cursor:pointer}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
+section{padding:120px 0;position:relative}
+.section-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 20px;background:var(--accent-dim);color:var(--accent);
+  border-radius:50px;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:20px;
+  border:1px solid rgba(230,57,70,0.08);
+}
+.section-header{text-align:center;margin-bottom:64px}
+.section-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;margin-bottom:16px;
+}
+.section-header h2 .accent{background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-header p{color:var(--text2);max-width:520px;margin:0 auto;font-size:0.95rem;line-height:1.8}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(230,57,70,0.15),transparent);margin:0;border:none}
+
+/* ══════════════════════════════════════════════════════════════
+   PRELOADER
+   ══════════════════════════════════════════════════════════════ */
+#preloader{
+  position:fixed;inset:0;z-index:99999;
+  background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  transition:opacity 0.8s,visibility 0.8s;
+}
+#preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-snake{font-size:3rem}
+.preloader-title{font-family:'Cinzel',serif;font-size:1.5rem;letter-spacing:6px;color:var(--accent)}
+.preloader-sub{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:4px}
+.preloader-track{width:240px;height:2px;background:rgba(255,255,255,0.04);border-radius:2px;overflow:hidden;position:relative}
+.preloader-track::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:var(--gradient-accent);border-radius:2px;
+  animation:preload-sweep 1.4s ease-in-out infinite;
+}
+@keyframes preload-sweep{0%{left:-100%}100%{left:200%}}
+@keyframes preloader-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:0.85}}
+
+/* ══════════════════════════════════════════════════════════════
+   NAV
+   ══════════════════════════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:24px 0;transition:var(--transition);
+}
+nav.scrolled{
+  background:rgba(5,5,5,0.88);backdrop-filter:blur(28px) saturate(1.4);
+  -webkit-backdrop-filter:blur(28px) saturate(1.4);
+  padding:12px 0;box-shadow:0 1px 0 var(--glass-border);
+}
+nav .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Cinzel',serif;font-size:1.1rem;display:flex;align-items:center;gap:10px;letter-spacing:1px;flex-shrink:0}
+.logo-symbol{width:36px;height:36px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:var(--transition)}
+.logo:hover .logo-symbol{transform:rotate(45deg);border-color:var(--accent2)}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-serpentarius{font-size:0.85rem;font-weight:700;color:var(--text);letter-spacing:2px}
+.logo-rockstore{font-size:0.6rem;font-weight:700;color:var(--accent);letter-spacing:4px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none;flex-shrink:0}
+.nav-links a{
+  font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--text2);transition:var(--transition);position:relative;padding:4px 0;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;
+  background:var(--accent);transition:var(--transition);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;background:var(--accent);color:#fff;border-radius:50px;
+  font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+  transition:var(--transition-bounce);
+}
+.nav-cta:hover{background:#c1121f;transform:translateY(-2px);box-shadow:var(--shadow-accent)}
+.menu-toggle{display:none;font-size:1.4rem;color:var(--text);z-index:1001;padding:8px}
+.menu-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:var(--transition)}
+
+/* ══════════════════════════════════════════════════════════════
+   FLOATING WA + BACK TOP
+   ══════════════════════════════════════════════════════════════ */
+.floating-wa{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:60px;height:60px;border-radius:50%;
+  background:var(--green);color:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;box-shadow:0 6px 24px rgba(37,211,102,0.25);
+  transition:var(--transition-bounce);
+}
+.floating-wa:hover{transform:scale(1.1);box-shadow:0 8px 36px rgba(37,211,102,0.4)}
+.floating-wa .wa-badge{
+  position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;
+  background:var(--accent);color:#fff;font-size:0.5rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;border:2px solid var(--bg);
+  animation:pulse-dot 2s infinite;
+}
+@keyframes pulse-dot{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.floating-wa .tooltip{
+  position:absolute;right:calc(100% + 16px);top:50%;transform:translateY(-50%);
+  background:var(--surface2);color:var(--text);padding:8px 16px;border-radius:var(--radius-xs);
+  font-size:0.7rem;white-space:nowrap;opacity:0;pointer-events:none;transition:var(--transition);
+  border:1px solid var(--glass-border);
+}
+.floating-wa:hover .tooltip{opacity:1}
+.back-top{
+  position:fixed;bottom:100px;right:28px;z-index:998;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--surface);color:var(--text2);border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;font-size:0.9rem;
+  transition:var(--transition);opacity:0;pointer-events:none;backdrop-filter:blur(8px);
+}
+.back-top.visible{opacity:1;pointer-events:auto}
+.back-top:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-4px)}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;
+  background:var(--gradient-hero);
+}
+.hero-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.particle{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:var(--accent);opacity:0;animation:particle-float linear infinite;
+}
+@keyframes particle-float{
+  0%{transform:translateY(0) translateX(0) scale(0);opacity:0}
+  10%{opacity:0.08}
+  90%{opacity:0.08}
+  100%{transform:translateY(-100vh) translateX(100px) scale(1);opacity:0}
+}
+.hero-grid-bg{position:absolute;inset:0;z-index:1;opacity:0.02}
+.hero-grid-bg::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero .container{position:relative;z-index:2;text-align:center;padding:80px 24px 60px}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,8vw,7rem);
+  font-weight:900;line-height:1.1;margin-bottom:0;
+}
+.hero h1 .line{display:block}
+.hero h1 .accent{background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:72px}
+.btn-primary,.btn-secondary{
+  padding:16px 40px;border-radius:50px;font-size:0.82rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:1.5px;display:inline-flex;align-items:center;gap:10px;
+  transition:var(--transition-bounce);position:relative;overflow:hidden;
+}
+.btn-primary{
+  background:rgba(230,57,70,0.12);color:var(--accent);border:1px solid rgba(230,57,70,0.25);
+  backdrop-filter:blur(8px);
+}
+.btn-primary:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-3px)}
+.btn-primary:active{transform:translateY(-1px)}
+.btn-secondary{
+  border:1px solid rgba(255,255,255,0.1);color:var(--text);
+  backdrop-filter:blur(8px);
+}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+
+/* ══════════════════════════════════════════════════════════════
+   STORY
+   ══════════════════════════════════════════════════════════════ */
+.story{padding:140px 0;background:var(--bg)}
+.story .container{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-visual{position:relative}
+.story-main-img{
+  border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;
+  border:1px solid var(--glass-border);position:relative;
+}
+.story-main-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s ease}
+.story-main-img:hover img{transform:scale(1.04)}
+.story-main-img .img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.4))}
+.story-badge{
+  position:absolute;bottom:-24px;right:-24px;
+  background:var(--surface);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:var(--radius-sm);
+  padding:20px 24px;display:flex;align-items:center;gap:16px;
+}
+.story-badge-icon{width:48px;height:48px;border-radius:50%;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent)}
+.story-badge-text .num{font-size:1.1rem;font-weight:700}
+.story-badge-text .label{font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.story-content h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.2;margin-bottom:20px;
+}
+.story-content h2 .accent{color:var(--accent)}
+.story-content p{color:var(--text2);margin-bottom:12px;font-size:0.92rem;line-height:1.85}
+.story-details{margin-top:24px;display:grid;gap:10px}
+.story-detail{display:flex;align-items:center;gap:12px;font-size:0.85rem;color:var(--text2);padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+.story-detail:last-child{border:none}
+.story-detail i{width:18px;color:var(--accent);font-size:0.75rem;text-align:center}
+
+/* ══════════════════════════════════════════════════════════════
+   PRODUCTS
+   ══════════════════════════════════════════════════════════════ */
+.products{background:var(--bg2)}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.product-card{
+  background:var(--surface);border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--glass-border);transition:var(--transition);
+  perspective:1000px;position:relative;
+}
+.product-card:hover{transform:translateY(-8px) rotateX(2deg);box-shadow:var(--shadow-lg);border-color:rgba(230,57,70,0.12)}
+.product-img-wrap{
+  position:relative;overflow:hidden;aspect-ratio:1;background:var(--bg3);
+}
+.product-img-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+.product-card:hover .product-img-wrap img{transform:scale(1.08)}
+.product-badges{position:absolute;top:14px;left:14px;right:14px;display:flex;gap:8px;flex-wrap:wrap}
+.product-badge{
+  padding:5px 12px;border-radius:50px;font-size:0.6rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.5px;backdrop-filter:blur(8px);
+}
+.product-badge.hot{background:var(--accent);color:#fff}
+.product-badge.limited{background:var(--accent2);color:#000}
+.product-badge.new{background:var(--green);color:#000}
+.product-actions{
+  position:absolute;bottom:14px;left:14px;right:14px;display:flex;gap:8px;
+  transform:translateY(12px);opacity:0;transition:var(--transition);
+}
+.product-card:hover .product-actions{transform:translateY(0);opacity:1}
+.product-actions .btn-buy{
+  flex:1;padding:12px 16px;border-radius:var(--radius-xs);
+  background:var(--green);color:#000;
+  font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;
+  display:flex;align-items:center;justify-content:center;gap:8px;transition:var(--transition);
+}
+.product-actions .btn-buy:hover{background:#1ebe5d;transform:scale(1.02)}
+.product-actions .btn-zoom{
+  width:44px;flex:0;border-radius:var(--radius-xs);
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);color:#fff;
+  border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);font-size:0.85rem;
+}
+.product-actions .btn-zoom:hover{background:var(--accent);border-color:var(--accent)}
+.product-info{padding:20px}
+.product-info h3{font-size:0.95rem;font-weight:600;margin-bottom:2px}
+.product-info .meta{display:flex;justify-content:space-between;align-items:center}
+.product-info .price{font-size:1.3rem;font-weight:700;color:var(--accent)}
+.product-info .price .old{font-size:0.7rem;color:var(--text3);text-decoration:line-through;margin-right:8px;font-weight:400}
+.product-info .ref{font-size:0.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px}
+
+/* ══════════════════════════════════════════════════════════════
+   FEATURES
+   ══════════════════════════════════════════════════════════════ */
+.features{background:var(--bg3);position:relative}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.feature-card{
+  text-align:center;padding:48px 24px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--glass-border);
+  transition:var(--transition);position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--gradient-accent);transform:scaleX(0);transition:var(--transition);
+}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-card:hover{transform:translateY(-6px);border-color:rgba(230,57,70,0.1)}
+.feature-icon{
+  width:60px;height:60px;border-radius:50%;margin:0 auto 20px;
+  background:var(--accent-dim);display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:var(--accent);transition:var(--transition);
+}
+.feature-card:hover .feature-icon{background:var(--accent);color:#fff;transform:scale(1.1) rotate(-10deg)}
+.feature-card h4{font-size:0.9rem;margin-bottom:8px}
+.feature-card p{font-size:0.78rem;color:var(--text2);line-height:1.7}
+
+/* ══════════════════════════════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════════════════════════════ */
+.testimonials{background:var(--bg);overflow:hidden}
+.testimonials-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 0 40px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.testimonials-track::-webkit-scrollbar{display:none}
+.testimonial-card{
+  min-width:340px;max-width:400px;flex-shrink:0;scroll-snap-align:start;
+  background:var(--surface);border-radius:var(--radius);padding:32px;
+  border:1px solid var(--glass-border);transition:var(--transition);
+}
+.testimonial-card:hover{transform:translateY(-4px);border-color:rgba(230,57,70,0.08)}
+.testimonial-stars{color:var(--accent2);font-size:0.8rem;margin-bottom:16px;letter-spacing:2px}
+.testimonial-text{font-size:0.88rem;color:var(--text2);line-height:1.7;margin-bottom:20px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{
+  width:42px;height:42px;border-radius:50%;background:var(--accent-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--accent);font-size:0.9rem;flex-shrink:0;
+}
+.testimonial-name{font-size:0.82rem;font-weight:600}
+.testimonial-location{font-size:0.68rem;color:var(--text3);margin-top:2px}
+.testimonial-dots{display:flex;justify-content:center;gap:10px;margin-top:8px}
+.testimonial-dot{width:8px;height:8px;border-radius:50%;background:var(--text4);border:none;cursor:pointer;transition:var(--transition)}
+.testimonial-dot.active{background:var(--accent);width:28px;border-radius:4px}
+
+/* ══════════════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════════════ */
+.faq{background:var(--bg2)}
+.faq-grid{max-width:720px;margin:0 auto;display:grid;gap:12px}
+.faq-item{
+  background:var(--surface);border-radius:var(--radius-sm);
+  border:1px solid var(--glass-border);overflow:hidden;transition:var(--transition);
+}
+.faq-item:hover{border-color:rgba(230,57,70,0.08)}
+.faq-question{
+  width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:0.88rem;font-weight:500;text-align:left;color:var(--text);
+  transition:var(--transition);
+}
+.faq-question i{font-size:0.7rem;color:var(--text3);transition:var(--transition)}
+.faq-item.open .faq-question{color:var(--accent)}
+.faq-item.open .faq-question i{transform:rotate(180deg);color:var(--accent)}
+.faq-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease, padding 0.4s ease;
+  padding:0 24px;
+}
+.faq-item.open .faq-answer{max-height:300px;padding:0 24px 20px}
+.faq-answer p{font-size:0.85rem;color:var(--text2);line-height:1.7}
+
+/* ══════════════════════════════════════════════════════════════
+   CTA
+   ══════════════════════════════════════════════════════════════ */
+.cta-wa{
+  background:var(--gradient-hero);position:relative;overflow:hidden;
+}
+.cta-wa::before{
+  content:'';position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,211,102,0.05),transparent 70%);
+  top:-200px;right:-200px;
+}
+.cta-wa::after{
+  content:'';position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(230,57,70,0.03),transparent 70%);
+  bottom:-250px;left:-250px;
+}
+.cta-wa .container{text-align:center;position:relative;z-index:2}
+.cta-wa h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:14px;
+}
+.cta-wa p{color:var(--text2);max-width:520px;margin:0 auto 32px;font-size:0.92rem;line-height:1.7}
+.wa-btn-xl{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:22px 60px;background:var(--green);color:#000;border-radius:50px;
+  font-size:1.05rem;font-weight:700;transition:var(--transition-bounce);
+}
+.wa-btn-xl:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 44px rgba(37,211,102,0.3)}
+.wa-btn-xl i{font-size:1.5rem}
+.cta-trust{display:flex;justify-content:center;gap:36px;margin-top:28px;flex-wrap:wrap}
+.cta-trust span{font-size:0.72rem;color:var(--text3);display:flex;align-items:center;gap:6px}
+.cta-trust i{color:var(--green);font-size:0.65rem}
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHTBOX
+   ══════════════════════════════════════════════════════════════ */
+.lightbox{
+  position:fixed;inset:0;z-index:10000;
+  background:rgba(0,0,0,0.94);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:var(--transition);
+}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:var(--radius-sm);box-shadow:var(--shadow-lg)}
+.lightbox-close{
+  position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,0.06);color:var(--text);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  transition:var(--transition);
+}
+.lightbox-close:hover{background:var(--accent);transform:rotate(90deg)}
+.lightbox-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:0.8rem;color:var(--text3)}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════ */
+footer{background:var(--bg);border-top:1px solid var(--glass-border);padding:80px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand .logo{margin-bottom:16px;display:inline-flex}
+.footer-brand .logo:hover .logo-symbol{transform:rotate(45deg)}
+.footer-brand p{font-size:0.82rem;color:var(--text2);line-height:1.8;max-width:320px}
+.footer-col h5{font-size:0.65rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--text);margin-bottom:20px;font-weight:600}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul a{font-size:0.82rem;color:var(--text2);transition:var(--transition);display:flex;align-items:center;gap:8px}
+.footer-col ul a:hover{color:var(--accent)}
+.footer-bottom{
+  border-top:1px solid var(--glass-border);padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:0.75rem;color:var(--text3)}
+.social-links{display:flex;gap:10px}
+.social-links a{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text2);font-size:0.85rem;transition:var(--transition);
+}
+.social-links a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+
+/* ══════════════════════════════════════════════════════════════
+   NOTIFICATION TOAST
+   ══════════════════════════════════════════════════════════════ */
+.toast{
+  position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9999;
+  background:var(--surface2);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:var(--radius-sm);
+  padding:14px 24px;display:flex;align-items:center;gap:12px;
+  opacity:0;pointer-events:none;transition:var(--transition);
+  font-size:0.85rem;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast i{color:var(--green);font-size:1.1rem}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET
+   ══════════════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  section{padding:80px 0}
+  .story .container{grid-template-columns:1fr;gap:48px;text-align:center}
+  .story-main-img{max-width:420px;margin:0 auto}
+  .story-details{max-width:420px;margin:24px auto 0;text-align:left}
+  .story-badge{right:50%;transform:translateX(50%);bottom:-24px}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE
+   ══════════════════════════════════════════════════════════════ */
+@media(max-width:768px){
+  section{padding:60px 0}
+  .hero .container{padding:70px 20px 40px}
+  .hero-actions{margin-top:52px}
+  .nav-links{
+    position:fixed;top:0;right:-320px;width:300px;height:100vh;
+    background:rgba(8,8,8,0.98);backdrop-filter:blur(24px);
+    flex-direction:column;justify-content:center;align-items:center;gap:32px;
+    transition:right 0.5s cubic-bezier(0.4,0,0.2,1);z-index:1000;border-left:1px solid var(--glass-border);
+  }
+  .nav-links.open{right:0}
+  .menu-overlay.open{opacity:1;pointer-events:auto}
+  .menu-toggle{display:block}
+  .product-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .features-grid{gap:12px}
+  .testimonial-card{min-width:280px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .story-badge{position:relative;bottom:0;right:0;transform:none;margin-top:-20px;width:fit-content;margin-left:auto;margin-right:auto}
+  .floating-wa{bottom:20px;right:16px;width:52px;height:52px;font-size:1.3rem}
+  .btn-primary,.btn-secondary{padding:14px 28px;font-size:0.78rem}
+  .wa-btn-xl{padding:18px 36px;font-size:0.9rem}
+}
+
+@media(max-width:480px){
+  .hero{min-height:92vh}
+  .hero .container{padding:60px 16px 32px}
+  .hero h1{font-size:2rem}
+  .hero-actions{gap:10px;margin-top:40px}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:12px 20px;font-size:0.72rem}
+  .features-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:1fr}
+  .product-actions{opacity:1;transform:none}
+  .section-header{margin-bottom:36px}
+  .cta-trust{gap:16px;flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="preloader-snake"><img src="download/logo.jpeg" alt="Serpentarius" style="width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 0 40px rgba(230,57,70,0.3);animation:preloader-pulse 2s ease-in-out infinite" onerror="this.style.display='none';this.parentElement.innerHTML='🐍'"><span style="display:none;font-size:4rem">🐍</span></div>
+  <div class="preloader-title">SERPENTARIUS</div>
+  <div class="preloader-sub">Ropa & Accesorios — Sweaters</div>
+  <div class="preloader-track"></div>
+</div>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <span class="logo-symbol"><img src="download/logo.jpeg" alt="Serpentarius" style="width:32px;height:32px;border-radius:50%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='🐍'"></span>
+      <span class="logo-text">
+        <span class="logo-serpentarius">SERPENTARIUS</span>
+        <span class="logo-rockstore">✦ Ropa y Accesorios ✦</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story">Historia</a></li>
+      <li><a href="#products">Sweaters</a></li>
+      <li><a href="#features">Por qué</a></li>
+      <li><a href="#reviews">Reseñas</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://wa.me/573108784166" target="_blank" class="nav-cta"><i class="fab fa-whatsapp"></i> Comprar</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+    <div class="menu-overlay" id="menuOverlay"></div>
+  </div>
+</nav>
+
+<a href="https://wa.me/573108784166?text=Hola!%20Vi%20los%20sweaters%20en%20tu%20p%C3%A1gina%20y%20quiero%20informaci%C3%B3n" target="_blank" class="floating-wa" aria-label="WhatsApp">
+  <span class="wa-badge">1</span>
+  <i class="fab fa-whatsapp"></i>
+  <span class="tooltip">¿Te ayudo? 🤘</span>
+</a>
+
+<button class="back-top" id="backTop" aria-label="Subir"><i class="fas fa-chevron-up"></i></button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+  <img id="lightboxImg" src="" alt="Ampliada">
+  <span class="lightbox-counter" id="lightboxCounter"></span>
+</div>
+
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg">Enlace copiado</span></div>
+
+
+
+<section class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <h1>
+      <span class="line">Sweaters que</span>
+      <span class="line accent">gritan tu esencia</span>
+    </h1>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary"><i class="fas fa-arrow-down"></i> Ver colección</a>
+      <a href="https://wa.me/573108784166?text=Hola!%20Quiero%20información%20sobre%20los%20sweaters%20de%20%2495,000" target="_blank" class="btn-secondary"><i class="fab fa-whatsapp"></i> Comprar</a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-visual">
+      <div class="story-main-img">
+        <img src="https://lh3.googleusercontent.com/d/1wDS7dnB6RllrJg5N94Zq8By93X_7l24G" alt="Baphomet Sweater" loading="lazy">
+        <div class="img-overlay"></div>
+      </div>
+      <div class="story-badge">
+        <div class="story-badge-icon"><i class="fas fa-industry"></i></div>
+        <div class="story-badge-text">
+          <div class="num">100% Industrial</div>
+          <div class="label">Tejido a máquina en Colombia 🇨🇴</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-content">
+      <div class="section-tag"><i class="fas fa-skull"></i> Nuestra esencia — Ropa y Accesorios</div>
+      <h2>Nuestro mayor top: <span class="accent">los sweaters</span></h2>
+      <p>Serpentarius Rock Store nace de la pasión por el rock, el metal y la estética oscura. Cada sweater es tejido industrial a máquina por operarios especializados colombianos que convierten hilos en declaraciones de identidad con precisión y calidad superior.</p>
+      <p>No somos una marca masiva. Somos un manifiesto. Cada prenda es limitada, cada puntada importa, cada cliente es parte de una tribu que elige la autenticidad sobre lo convencional. Nuestro tejido industrial garantiza durabilidad, consistencia y un acabado perfecto en cada prenda.</p>
+      <div class="story-details">
+        <div class="story-detail"><i class="fas fa-check"></i> <strong>Tejido industrial a máquina</strong> — mayor precisión y durabilidad</div>
+        <div class="story-detail"><i class="fas fa-check"></i> Ediciones limitadas — no repetimos diseños</div>
+        <div class="story-detail"><i class="fas fa-check"></i> Hilos premium hipoalergénicos con acabado profesional</div>
+        <div class="story-detail"><i class="fas fa-hand-holding-water"></i> <strong>Lavar a mano</strong> — no usar lavadora para mayor durabilidad</div>
+        <div class="story-detail"><i class="fas fa-check"></i> <span style="text-decoration:line-through;color:var(--text3)">$120,000</span> → <strong style="color:var(--accent);font-size:1rem">$95,000</strong> cada uno</div>
+        <div class="story-detail"><i class="fas fa-truck" style="color:var(--green)"></i> <strong style="color:var(--green)">3 sweaters = Envío gratis</strong> · 6+ (al por mayor) = <strong style="color:var(--accent2)">$90,000 c/u + envío gratis</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <hr class="section-divider">
+  <div class="container" style="padding-top:100px">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-tshirt"></i> Ropa y Accesorios</div>
+      <h2>Colección <span class="accent">2026</span></h2>
+      <p>Nuestro mayor top: <strong style="color:var(--accent)">los sweaters</strong>. Cada diseño es único y limitado. Cuando se termina, no vuelve.</p>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://wa.me/c/573108784166" target="_blank" class="btn-secondary"><i class="fas fa-expand"></i> Ver catálogo completo</a>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <hr class="section-divider">
+  <div class="container" style="padding-top:100px">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-gem"></i> Por qué</div>
+      <h2>¿Por qué <span class="accent">elegirnos</span>?</h2>
+      <p>Nuestro mayor top son los sweaters — calidad industrial, precio justo, diseñados para los que llevan el rock en la piel.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-industry"></i></div>
+        <h4>Tejido Industrial a Máquina</h4>
+        <p>Precisión y durabilidad superior. Cada sweater es tejido industrialmente en Colombia con los más altos estándares de calidad — acabado perfecto en cada prenda.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-truck"></i></div>
+        <h4>Envío a Colombia</h4>
+        <p>Llegamos a cualquier ciudad. <strong style="color:var(--accent2)">Envío gratis desde 3 sweaters.</strong> 🎯 <strong style="color:var(--green)">6+ sweaters (al por mayor): $90,000 c/u + envío gratis</strong></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-infinity"></i></div>
+        <h4>Edición limitada</h4>
+        <p>Producción pequeña y controlada. Exclusividad sobre cantidad. No somos fast fashion.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>Pago 100% seguro</h4>
+        <p>Nequi o Daviplata. Recibe tu guía de seguimiento y rastrea tu pedido en tiempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <hr class="section-divider">
+  <div class="container" style="padding-top:100px">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-star"></i> Reseñas</div>
+      <h2>Lo que dicen <span class="accent">nuestros clientes</span></h2>
+      <p><span style="text-decoration:line-through;color:var(--text3)">$120,000</span> → <strong style="color:var(--accent)">$95,000</strong> · 3 sweaters = envío gratis · 6+ (al por mayor) = <strong style="color:var(--accent2)">$90,000 c/u + envío gratis</strong></p>
+    </div>
+    <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"El sweater es espectacular, la calidad del tejido se siente desde que lo sacas de la bolsa. Llegó súper rápido a Medellín. Ya quiero comprar más."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CM</div>
+          <div><div class="testimonial-name">Carlos M.</div><div class="testimonial-location">Medellín</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Una chimba de buso, muy fresco pero abriga durísimo. El diseño del 000T27 me voló la cabeza. Llegó en 2 días a Bogotá."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DR</div>
+          <div><div class="testimonial-name">Daniela R.</div><div class="testimonial-location">Bogotá</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Compré el combo de 3 y todos quedaron hermosos. Pagué <span style="text-decoration:line-through">$120,000</span> a solo $95,000 cada uno y el envío fue gratis. La atención por WhatsApp súper rápida."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SP</div>
+          <div><div class="testimonial-name">Santiago P.</div><div class="testimonial-location">Cali</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Soy cliente recurrente, ya tengo 4 busos. La calidad es consistente, los diseños únicos y el envío siempre llega a tiempo a Bucaramanga."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AL</div>
+          <div><div class="testimonial-name">Andrea L.</div><div class="testimonial-location">Bucaramanga</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"El Baphomet Sweater es una obra de arte. El tejido industrial tiene unos detalles increíbles, se nota la calidad a máquina. Llegó súper bien empacado."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">FM</div>
+          <div><div class="testimonial-name">Felipe M.</div><div class="testimonial-location">Bogotá</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <hr class="section-divider">
+  <div class="container" style="padding-top:100px">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-question-circle"></i> FAQ</div>
+      <h2>Preguntas <span class="accent">frecuentes</span></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo comprar? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>¡Fácil! Escríbenos al WhatsApp con la referencia del sweater que te gustó. <span style="text-decoration:line-through;color:var(--text3)">$120,000</span> → <strong style="color:var(--accent)">$95,000</strong> cada uno. Si llevas 3, el <strong style="color:var(--green)">envío es gratis</strong>. Si llevas 6+ (al por mayor), te quedan en <strong style="color:var(--accent2)">$90,000 c/u + envío gratis</strong>. Pagas con Nequi o Daviplata y generamos la guía de envío al instante.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuánto tarda el envío? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Entre 2 a 5 días hábiles a cualquier ciudad de Colombia, dependiendo de la transportadora. Bogotá y Medellín suelen llegar en 1-2 días.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Hay envío gratis? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p><strong style="color:var(--accent)">¡Sí!</strong> Tenemos dos promos imperdibles:<br><br>🔥 <strong>3 sweaters:</strong> Envío gratis a toda Colombia. Precio de <span style="text-decoration:line-through;color:var(--text3)">$120,000</span> → <strong style="color:var(--accent)">$95,000</strong> cada uno.<br><br>🔥 <strong>6+ sweaters (al por mayor):</strong> <strong style="color:var(--accent2)">$90,000 c/u + envío gratis</strong>. Ahorras muchísimo.<br><br>Aplica mezclando referencias. Paga con Nequi o Daviplata.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo es el tema de las tallas? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Los sweaters son talla única que se adapta bien desde S hasta L. Si tienes dudas sobre la talla, escríbenos al WhatsApp y te asesoramos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo lavar mi sweater? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Recomendamos <strong style="color:var(--accent)">lavar a mano</strong> con agua fría y jabón suave. No usar lavadora ni secadora para mayor durabilidad. Seque a la sombra, extendido en plano. Así mantienes el tejido como nuevo por años.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Los diseños se reponen? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>No. Cada diseño es una edición limitada. Cuando se acaba el stock, ese diseño no vuelve a producirse. Por eso cada pieza es única.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-wa" id="contact">
+  <div class="container">
+    <div class="section-tag" style="background:var(--green-dim);color:var(--green);border-color:rgba(37,211,102,0.08)"><i class="fab fa-whatsapp"></i> Pedido directo</div>
+    <h2>¿Listo para tu sweater? 🔥</h2>
+    <p>De <span style="text-decoration:line-through;color:var(--text3)">$120,000</span> a <strong style="color:var(--accent);font-size:1.2rem">$95,000</strong> · 3 sweaters = <strong style="color:var(--green)">Envío gratis</strong> · 6+ (al por mayor) = <strong style="color:var(--accent2);font-size:1.1rem">$90,000 c/u + envío gratis</strong><br>Escríbenos al WhatsApp, te confirmamos disponibilidad y coordinamos el envío a tu ciudad. Respuesta en menos de 5 minutos.</p>
+    <a href="https://wa.me/573108784166?text=Hola!%20Vi%20los%20sweaters%20en%20tu%20página%20y%20quiero%20información" target="_blank" class="wa-btn-xl">
+      <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+    </a>
+    <div class="cta-trust">
+      <span><i class="fas fa-bolt"></i> Respuesta en menos de 5 min</span>
+      <span><i class="fas fa-shield-alt"></i> Pago 100% seguro</span>
+      <span><i class="fas fa-box"></i> Envío a todo Colombia</span>
+      <span><i class="fas fa-undo"></i> Satisfacción garantizada</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-symbol"><img src="download/logo.jpeg" alt="Serpentarius" style="width:32px;height:32px;border-radius:50%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='🐍'"></span>
+          <span class="logo-text">
+            <span class="logo-serpentarius">SERPENTARIUS</span>
+            <span class="logo-rockstore">✦ Ropa y Accesorios ✦</span>
+          </span>
+        </a>
+        <p>Sweaters rockeros tejido industrial a máquina en Colombia. Ediciones limitadas para almas indomables.</p>
+        <div style="margin-top:14px;padding:8px 12px;background:var(--accent-dim);border-radius:var(--radius-xs);border:1px solid rgba(230,57,70,0.06);font-size:0.72rem;color:var(--text2);line-height:1.6">
+          <span style="text-decoration:line-through;color:var(--text3)">$120,000</span> → <strong style="color:var(--accent)">$95,000</strong> cada uno<br>
+          🚚 <strong style="color:var(--green)">3 = Envío gratis</strong> · 🔥 <strong style="color:var(--accent2)">6+ (al por mayor) = $90,000 c/u + envío gratis</strong>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Productos</h5>
+        <ul>
+          <li><a href="#products">Sweaters destacados</a></li>
+          <li><a href="https://wa.me/c/573108784166" target="_blank">Catálogo completo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Ayuda</h5>
+        <ul>
+          <li><a href="https://wa.me/573108784166" target="_blank"><i class="fab fa-whatsapp"></i> Contacto directo</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="https://wa.me/573108784166" target="_blank"><i class="fab fa-whatsapp"></i> +57 310 878 4166</a></li>
+          <li><a href="mailto:Serpentariusrockstore@gmail.com"><i class="far fa-envelope"></i> serpentariusrockstore@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Serpentarius Rock Store. Hecho en Colombia 🇨🇴</p>
+      <div class="social-links">
+        <a href="https://wa.me/573108784166" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   PRELOADER
+   ══════════════════════════════════════════════════════════════ */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('preloader').classList.add('hidden'),2500));
+
+/* ══════════════════════════════════════════════════════════════
+   PRODUCTS DATA — Image format: lh3 (thumb) + uc (full)
+   ══════════════════════════════════════════════════════════════ */
+const PRODUCTS=[
+  {name:"Baphomet Sweater",price:"$95,000",oldPrice:"$120,000",id:"1wDS7dnB6RllrJg5N94Zq8By93X_7l24G",badge:"🔥 Más vendido",badgeClass:"hot",wa:"Hola!%20Me%20interesa%20el%20Baphomet%20Sweater%20de%20%2495,000%20antes%20%24120,000"},
+  {name:"Black Sabbath Sweater",price:"$95,000",oldPrice:"$120,000",id:"14RGr6FudKWgjX9eZE8ySJPRE2yTtifSe",badge:"Nuevo diseño",badgeClass:"new",wa:"Hola!%20Me%20interesa%20el%20Black%20Sabbath%20Sweater%20de%20%2495,000%20antes%20%24120,000"},
+  {name:"Iron Maiden Sweater",price:"$95,000",oldPrice:"$120,000",id:"1kc6nHk_4x--KdmaFxa-V6PJkohSYAdEo",badge:"Edición limitada",badgeClass:"limited",wa:"Hola!%20Me%20interesa%20el%20Iron%20Maiden%20Sweater%20de%20%2495,000%20antes%20%24120,000"},
+  {name:"Purple Hell Sweater",price:"$95,000",oldPrice:"$120,000",id:"1Tkl3CEWE0DAGKQvqOOln-hFZPgh0KC_w",badge:"Edición limitada",badgeClass:"limited",wa:"Hola!%20Me%20interesa%20el%20Purple%20Hell%20Sweater%20de%20%2495,000%20antes%20%24120,000"}
+];
+const thumb=(id)=>`https://lh3.googleusercontent.com/d/${id}`;
+const full=(id)=>`https://drive.google.com/uc?export=download&id=${id}&confirm=t`;
+
+const grid=document.getElementById('productGrid');
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightboxImg');
+const lightboxCounter=document.getElementById('lightboxCounter');
+
+PRODUCTS.forEach((p,i)=>{
+  const card=document.createElement('div');card.className='product-card';
+  const old=p.oldPrice?`<span class="old">${p.oldPrice}</span>`:'';
+  card.innerHTML=`
+    <div class="product-img-wrap">
+      <img src="${thumb(p.id)}" alt="${p.name}" loading="lazy">
+      <div class="product-badges"><span class="product-badge ${p.badgeClass}">${p.badge}</span></div>
+      <div class="product-actions">
+        <a href="https://wa.me/573108784166?text=${p.wa}" target="_blank" class="btn-buy"><i class="fab fa-whatsapp"></i> Comprar ahora</a>
+        <button class="btn-zoom" data-index="${i}" aria-label="Ampliar"><i class="fas fa-expand"></i></button>
+      </div>
+    </div>
+    <div class="product-info">
+      <h3>${p.name}</h3>
+      <div class="meta"><span class="price">${old}${p.price}</span></div>
+      <div style="margin-top:10px;padding:6px 10px;background:rgba(37,211,102,0.06);border-radius:6px;border:1px solid rgba(37,211,102,0.08);font-size:0.62rem;color:var(--text2);text-align:center;line-height:1.5">
+        🚚 <strong style="color:var(--green)">3 = Envío gratis</strong> · 🔥 <strong style="color:var(--accent2)">6+ (al por mayor) = $90,000 c/u + envío gratis</strong>
+        <br>🧼 <strong style="color:var(--accent)">Lavar a mano</strong> — no usar lavadora
+      </div>
+    </div>`;
+  grid.appendChild(card);
+});
+
+grid.addEventListener('click',e=>{
+  const btn=e.target.closest('.btn-zoom');
+  if(!btn)return;
+  const idx=parseInt(btn.dataset.index);
+  lightboxImg.src=full(PRODUCTS[idx].id);
+  lightboxCounter.textContent=`${idx+1} / ${PRODUCTS.length}`;
+  lightbox.classList.add('open');
+  document.body.style.overflow='hidden';
+});
+document.getElementById('lightboxClose').addEventListener('click',()=>{lightbox.classList.remove('open');document.body.style.overflow=''});
+lightbox.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('open');document.body.style.overflow=''}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open')){lightbox.classList.remove('open');document.body.style.overflow=''}});
+
+/* ══════════════════════════════════════════════════════════════
+   PARTICLES
+   ══════════════════════════════════════════════════════════════ */
+const pc=document.getElementById('particles');
+for(let i=0;i<25;i++){
+  const p=document.createElement('div');p.className='particle';
+  const sz=Math.random()*4+2;
+  p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;bottom:${Math.random()*30}%;animation-duration:${Math.random()*25+20}s;animation-delay:${Math.random()*15}s;background:${i%2===0?'var(--accent)':'var(--accent2)'}`;
+  pc.appendChild(p);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ══════════════════════════════════════════════════════════════ */
+document.querySelectorAll('.product-card,.feature-card,.testimonial-card,.story-visual,.story-content,.faq-item').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';
+  el.style.transition=`opacity 0.6s ease ${i*0.06}s,transform 0.6s ease ${i*0.06}s`;
+  new IntersectionObserver(([e])=>{if(e.isIntersecting){el.style.opacity='1';el.style.transform='translateY(0)'}},{threshold:.1}).observe(el);
+});
+
+/* ══════════════════════════════════════════════════════════════
+   NAV
+   ══════════════════════════════════════════════════════════════ */
+const navbar=document.getElementById('navbar'),backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{const s=window.scrollY;navbar.classList.toggle('scrolled',s>50);backTop.classList.toggle('visible',s>400)});
+backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ══════════════════════════════════════════════════════════════
+   MENU
+   ══════════════════════════════════════════════════════════════ */
+const mt=document.getElementById('menuToggle'),nl=document.getElementById('navLinks'),mo=document.getElementById('menuOverlay');
+mt.addEventListener('click',()=>{nl.classList.toggle('open');mo.classList.toggle('open');mt.querySelector('i').className=nl.classList.contains('open')?'fas fa-times':'fas fa-bars'});
+mo.addEventListener('click',()=>{nl.classList.remove('open');mo.classList.remove('open');mt.querySelector('i').className='fas fa-bars'});
+document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(l=>l.addEventListener('click',()=>{nl.classList.remove('open');mo.classList.remove('open');mt.querySelector('i').className='fas fa-bars'}));
+
+/* ══════════════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════════════ */
+document.querySelectorAll('.faq-question').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.closest('.faq-item'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+/* ══════════════════════════════════════════════════════════════
+   TESTIMONIAL DOTS
+   ══════════════════════════════════════════════════════════════ */
+const track=document.getElementById('testimonialsTrack');
+const dotsContainer=document.getElementById('testimonialDots');
+const cards=track.querySelectorAll('.testimonial-card');
+cards.forEach((_,i)=>{
+  const dot=document.createElement('button');dot.className='testimonial-dot'+(i===0?' active':'');
+  dot.addEventListener('click',()=>{
+    track.scrollTo({left:cards[i].offsetLeft-track.offsetLeft-16,behavior:'smooth'});
+    dotsContainer.querySelectorAll('.testimonial-dot').forEach(d=>d.classList.remove('active'));
+    dot.classList.add('active');
+  });
+  dotsContainer.appendChild(dot);
+});
+track.addEventListener('scroll',()=>{
+  let closest=0,minDist=Infinity;
+  cards.forEach((c,i)=>{
+    const dist=Math.abs(c.getBoundingClientRect().left-track.getBoundingClientRect().left);
+    if(dist<minDist){minDist=dist;closest=i}
+  });
+  dotsContainer.querySelectorAll('.testimonial-dot').forEach((d,i)=>d.classList.toggle('active',i===closest));
+});
+
+/* ══════════════════════════════════════════════════════════════
+   TOAST
+   ══════════════════════════════════════════════════════════════ */
+window.showToast=(msg)=>{
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+};
+</script>
+</body>
+</html>
